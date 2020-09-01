@@ -17,7 +17,7 @@ buildscript {
 }
 ```
  *  ext : 전역변수
- *  repositories : 의존성 라이러리들을 어떤 원격장소에서 받을 것인지 정한다. 
+ *  repositories : 의존성 라이러리 원격장소 지정  
     - 기본 : mavenCentral()
     - 라이러리 업로드 난이도로 인해 jcenter()도 많이 사용한다.
  *  dependencies : 프로젝트에 필요한 의존성을 선언
