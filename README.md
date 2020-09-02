@@ -21,5 +21,7 @@ buildscript {
     - 기본 : mavenCentral()
     - 라이러리 업로드 난이도로 인해 jcenter()도 많이 사용한다.
  *  dependencies : 프로젝트에 필요한 의존성을 선언
+ 
+
 
 
