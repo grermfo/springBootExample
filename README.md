@@ -46,8 +46,8 @@ public class HelloController  {
 }
 ```
 * RestController
- + 컨트롤러를 json으로 반환
- + ResponseBody를 각 메서드마다 선언했는데 한번에 사용할 수 있게 해준다.
+  + 컨트롤러를 json으로 반환
+  + ResponseBody를 각 메서드마다 선언했는데 한번에 사용할 수 있게 해준다.
 * GetMapping
   + get 요청을 받을 수 있는 api를 만들어 준다
   + RequestMapping(method=RequestMethod.GET)으로 사용. 
