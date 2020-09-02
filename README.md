@@ -33,5 +33,18 @@ buildscript {
 > 내장 was 실행 (Web Application Service)
 >> 스프링 부트는 내장 was 사용을 권장함 - 언제 어디서나 동일 환경에서 스프링부트를 배포할 수 있기 때문에
 
+```
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController  {
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello! World";
+    }
+}
+```
+
 
 
