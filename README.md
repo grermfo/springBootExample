@@ -75,23 +75,23 @@ public class HelloControllerTest {
 ```
 
 * RunWith(SpringRunner.class) 
-    + Junit의 내장된 실행자가 아닌 다른 실행자를 실행
-    + 스프링부트와 Junit 사이의 연결자 역할
+  + Junit의 내장된 실행자가 아닌 다른 실행자를 실행
+  + 스프링부트와 Junit 사이의 연결자 역할
 * WebMvcTest
-    + Web(Spring MVC)에 집중할 수 있는 어노테이션
-    + 선언시 Controller , ControllerAdvice 사용할 수 있지만 Service, Component, Repository 사용 불가
+  + Web(Spring MVC)에 집중할 수 있는 어노테이션
+  + 선언시 Controller , ControllerAdvice 사용할 수 있지만 Service, Component, Repository 사용 불가
 * Autowired
-    + 스프링이 관리하는 Bean 주입
+  + 스프링이 관리하는 Bean 주입
 * MocMvc 
-    + 웹API를 테스트할 때 사용 / 스프링MVC 테스트 시작점
-    +  Http get, post api 테스트
-* andExpect(status().isOk()) 
-    + Http Header의 Status를 검증한다. 
-    + 200, 404, 500 등의 상태를 검증한다.
-    + 여기서는 200 여부를 검증
+  + 웹API를 테스트할 때 사용 / 스프링MVC 테스트 시작점
+  +  Http get, post api 테스트
+* andExpect(status().isOk())
+  + Http Header의 Status를 검증한다. 
+  + 200, 404, 500 등의 상태를 검증한다.
+  + 여기서는 200 여부를 검증
 * andExpect(content.string(helloWorld))  
-    + mvc.perform의 결과를 검증
-    + Controller의 결과 값과 동일한지 검증
+  + mvc.perform의 결과를 검증
+  + Controller의 결과 값과 동일한지 검증
     
 * 결과값이 동일하지 않은 경우
     > Tests failed: 1, passed: 0
