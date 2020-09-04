@@ -119,3 +119,16 @@ public class HelloWordDto {
 * RequiredArgsConstructor
   + final 변수만 포함한 생성자(Contstuctor)를 생성
 
+#### 3. Test 작성
+
+```
+assertThat(dto.getName()).isEqualsTo(name);
+assertThat(dto.getAge()).isEqualsTo(age);
+```
+
+* assertThat
+  + 테스트 검증 라이브러리의 검증 메서드
+  + 검증 하고 싶은 대상을 검증 메서드 인자로 받음.
+  + 메서드 체이닝이 지원되어 isEqualTo 메서드를 이어서 사용 할 수 있다.
+    > 메서드 객체를 반환하게 되면 메서드 반환값인 객체를 통해 다른 함수를 호출
+    > 이런 프로그래밍 패턴을 메서드 체이닝이라고 한다.
