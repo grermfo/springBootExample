@@ -132,3 +132,8 @@ assertThat(dto.getAge()).isEqualsTo(age);
   + 메서드 체이닝이 지원되어 isEqualTo 메서드를 이어서 사용 할 수 있다.
     > 메서드 객체를 반환하게 되면 메서드 반환값인 객체를 통해 다른 함수를 호출
     > 이런 프로그래밍 패턴을 메서드 체이닝이라고 한다.
+* isEqualTo
+  + assertj의 비교 메서드
+  + assertThat에 있는 값과 isEqualTo의 값을 비교해 같을 때만 성공임.
+    > assertj가 Junit의 assertThat보다 편한 이유는 라이브러리가 필요하지 않다.
+    > 자동완성이 좀더 확실이 지원된다.
