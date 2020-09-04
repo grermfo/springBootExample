@@ -97,3 +97,24 @@ public class HelloControllerTest {
     > Tests failed: 1, passed: 0
 * 결과값과 동일한 경우
     > Tests passed: 1
+
+### 2020.09.04 스터디 내용
+#### 1. lombok 추가
+
+> build.gradle 
+>> compile('org.projectlombok:lombok')
+
+```
+@Getter
+@RequiredArgsConstructor
+public class HelloWordDto {
+  private final String name;
+  private final int age;
+}
+```
+
+* Getter
+  + 선언된 변수의 get메서드 생성
+* RequiredArgsConstructor
+ + final 변수만 포함한 생성자(Contstuctor)를 생성
+
