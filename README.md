@@ -117,5 +117,5 @@ public class HelloWordDto {
 * Getter
   + 선언된 변수의 get메서드 생성
 * RequiredArgsConstructor
- + final 변수만 포함한 생성자(Contstuctor)를 생성
+  + final 변수만 포함한 생성자(Contstuctor)를 생성
 
