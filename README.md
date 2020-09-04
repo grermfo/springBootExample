@@ -104,6 +104,7 @@ public class HelloControllerTest {
 > build.gradle 
 >> compile('org.projectlombok:lombok')
 
+#### 2. lombok을 통한 VO 혹은 DTO 
 ```
 @Getter
 @RequiredArgsConstructor
