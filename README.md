@@ -155,9 +155,7 @@ public void rtnHelloDto throws Exception  {
         .andExpect(jsonPath("$.age", is(age)));
        
 }
-
 ```
-
 * param 
   + api 테스트할 때 사용될 요청 파라미터를 설정함.
   + 스트링 값만 허용된다.
