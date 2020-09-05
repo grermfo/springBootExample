@@ -126,7 +126,7 @@ assertThat(dto.getName()).isEqualsTo(name);
 assertThat(dto.getAge()).isEqualsTo(age);
 ```
 
-* assertThat
+* assertThat    
   + 테스트 검증 라이브러리의 검증 메서드
   + 검증 하고 싶은 대상을 검증 메서드 인자로 받음.
   + 메서드 체이닝이 지원되어 isEqualTo 메서드를 이어서 사용 할 수 있다.
@@ -137,3 +137,33 @@ assertThat(dto.getAge()).isEqualsTo(age);
   + assertThat에 있는 값과 isEqualTo의 값을 비교해 같을 때만 성공임.
     > assertj가 Junit의 assertThat보다 편한 이유는 라이브러리가 필요하지 않다.
     > 자동완성이 좀더 확실이 지원된다.
+    
+    
+### 2020.09.05 스터디 내용
+#### 1. 테스트 
+
+```
+@Test
+public void rtnHelloDto throws Exception  {
+    String name ="Test";
+    int age= 30
+    mvc.perform(get("helloWorld/dto)
+        .param("name",name)
+        .param("age", String.valueOf(age))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.name", is(name)))
+        .andExpect(jsonPath("$.age", is(age)));
+       
+}
+
+```
+
+* param 
+  + api 테스트할 때 사용될 요청 파라미터를 설정함.
+  + 스트링 값만 허용된다.
+  + 다른 포맷의 경우 문자열이 가능합니다.
+  
+* jsonPath
+  + json 응답값을 변수별로 검증할 수 있는 메서드
+  + $를 기준으로 변수명을 명시함
+  
