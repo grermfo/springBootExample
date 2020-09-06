@@ -8,11 +8,11 @@ public class HelloResponseDtoTest {
     @Test
     public void lombokFunctionTest() {
         String name = "grermfo";
-        int amount = 30;
+        int age = 30;
 
-        HelloResponseDto dto = new HelloResponseDto(name, amount);
+        HelloResponseDto dto = new HelloResponseDto(name, age);
 
         assertThat(dto.getName()).isEqualTo(name);
-        assertThat(dto.getAmount()).isEqualTo(amount);
+        assertThat(dto.getAge()).isEqualTo(age);
     }
 }
