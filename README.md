@@ -170,5 +170,9 @@ public void rtnHelloDto throws Exception  {
   > 패러다임 불일치
    >>  관계형 데이터 베이스와 객체지향 프로그래밍 언어의 패러다임이 서로 다른데 객체를 데이터베이스에 저장하려니 여러 문제가 발생한다. 
    >>  서로 지향하는 바가 다른 영역의 중간에서 패러다임을 일치시켜 주는 기술-JPA의 역할이다.
+ * Spring Data JPA
+  + JPA는 인터페이스로서 자바 표준명세서이다. 
+  + 대표적인 구현체틑 Hibernate, Eclipselink 등이 있다
+  + 구현체를 좀더 쉽게 사용하고자 추상화 시킨 Spring Data JPA모듈을 이용하여  JPA를 다룬다.
   
   
