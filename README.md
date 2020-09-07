@@ -176,7 +176,7 @@ public void rtnHelloDto throws Exception  {
    + 구현체를 좀더 쉽게 사용하고자 추상화 시킨 Spring Data JPA모듈을 이용하여  JPA를 다룬다.
 
 ### 2020.09.07 스터디
-
+#### 1.JPA
 * Hibernate vs Spring Data JPA
   + 사용여부에 큰 차이가 없음
   + Spring Data JPA는 스프링진영에서 개발했고 이를 권장함.
@@ -194,4 +194,22 @@ public void rtnHelloDto throws Exception  {
 * JPA 특징
   + 높은 러닝커브(학습곡선 : 무엇을 배우는데 드는 시간[비용])으로 접근성이 어려움
   + 여러 성능 이슈해결책이 준비 되어 있어 네이티브 쿼리만큼의 퍼포먼스를 낼 수 있다.
-  
+
+#### 2. gradle에 JPA 추가하기
+* build.gradle
+```
+dependencies{
+ ...
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('com.h2database:h2')
+ ...  
+}
+```
+
+* spring-boot-starter-data-jpa
+  +  스프링부트용 jpa 추상화 라이브러리
+* h2
+  +  인메모리 관계형 데이터베이스
+  +  별도의 설치 없이 사용되며 어플리케이션 재시작시마다 초기화 된다.
+  +  테스트용으로 많이 사용 
+
