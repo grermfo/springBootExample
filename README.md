@@ -190,4 +190,8 @@ public void rtnHelloDto throws Exception  {
     - 관계형 데이터 베이스에서 nosql등으로 옮겨 갈 때 Spring Data JPA -> Spring Data Mongo로 의존성 교체만 하면 된다.
     - Spring Data 하위 프로젝트들은 기본적인 CRUD의 인터페이스가 동일하다. 
     - save(), findAll(), findOne() 등의 인터페이스를 동일하게 사용하기 때문에 저장소가 교체 되어도 기본적인 기능은 변경이 필요없다.
+
+* JPA 특징
+  + 높은 러닝커브(학습곡선 : 무엇을 배우는데 드는 시간[비용])으로 접근성이 어려움
+  + 여러 성능 이슈해결책이 준비 되어 있어 네이티브 쿼리만큼의 퍼포먼스를 낼 수 있다.
   
