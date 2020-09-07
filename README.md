@@ -174,5 +174,19 @@ public void rtnHelloDto throws Exception  {
    + JPA는 인터페이스로서 자바 표준명세서이다. 
    + 대표적인 구현체틑 Hibernate, Eclipselink 등이 있다
    + 구현체를 좀더 쉽게 사용하고자 추상화 시킨 Spring Data JPA모듈을 이용하여  JPA를 다룬다.
-  
+
+### 2020.09.07 스터디
+* Hibernate vs Spring Data JPA
+ + 사용여부에 큰 차이가 없음
+ + Spring Data JPA는 스프링진영에서 개발했고 이를 권장함.
+
+* Spring Data JPA 사용이유
+  + 구현체 교체의 용이성 
+    - Spring Data JPA 내부에서 구현체 맵핑을 지원해 주고 있기 때문에 
+   
+  + 저장소 교체의 용이성
+    - 관계형 데이터 베이스 외에 다른 저장소로 쉽게 교체하기 위함.
+    - 관계형 데이터 베이스에서 nosql등으로 옮겨 갈 때 Spring Data JPA -> Spring Data Mongo로 의존성 교체만 하면 된다.
+    - Spring Data 하위 프로젝트들은 기본적인 CRUD의 인터페이스가 동일하다. 
+    - save(), findAll(), findOne() 등의 인터페이스를 동일하게 사용하기 때문에 저장소가 교체 되어도 기본적인 기능은 변경이 필요없다.
   
