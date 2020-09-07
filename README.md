@@ -176,9 +176,10 @@ public void rtnHelloDto throws Exception  {
    + 구현체를 좀더 쉽게 사용하고자 추상화 시킨 Spring Data JPA모듈을 이용하여  JPA를 다룬다.
 
 ### 2020.09.07 스터디
+
 * Hibernate vs Spring Data JPA
- + 사용여부에 큰 차이가 없음
- + Spring Data JPA는 스프링진영에서 개발했고 이를 권장함.
+  + 사용여부에 큰 차이가 없음
+  + Spring Data JPA는 스프링진영에서 개발했고 이를 권장함.
 
 * Spring Data JPA 사용이유
   + 구현체 교체의 용이성 
