@@ -213,3 +213,46 @@ dependencies{
   +  별도의 설치 없이 사용되며 어플리케이션 재시작시마다 초기화 된다.
   +  테스트용으로 많이 사용 
 
+
+### 2020.09.09 스터디 내용
+```
+@Getter
+@NoArgsConstructor
+@Entity
+public class Posts {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(length = 500, nullable = false)
+    private String title;
+
+    @Column(columnDefinition = "TEXT", nullable = false)
+    private  String content;
+
+    private String author;
+
+    @Builder
+    public Posts(String title, String content, String author) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
+    }
+
+}
+
+```
+
+* Entity
+  + 테이블과 링크될 클래스임을 나타내고 클래스명의 카멜케이스 -> 언더스코어 네이밍으로 매칭한다
+* Id
+  + 해당테이블의 PK
+* Column
+  + 클래스의 변수는 모두 컬럼이다.
+  + 필요 옵션이 있으면 사용한다. (사이즈(기본255) 500 or 컬럼타입 TEXT)
+* NoArgsConstructor
+  + 기본생성자 자동추가 
+* Builder 
+  + 해당 클래스의 빌더 패턴 클래스를 생성
+  + 생성자 상단에 선언시 생성자에 포함된 변수만 빌더에 포함
