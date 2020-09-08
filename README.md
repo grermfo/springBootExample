@@ -165,3 +165,51 @@ public void rtnHelloDto throws Exception  {
   + json 응답값을 변수별로 검증할 수 있는 메서드
   + $를 기준으로 변수명을 명시함
   
+### 2020.09.06 스터디내용
+#### 1. JPA
+  > 패러다임 불일치
+   >>  관계형 데이터 베이스와 객체지향 프로그래밍 언어의 패러다임이 서로 다른데 객체를 데이터베이스에 저장하려니 여러 문제가 발생한다. 
+   >>  서로 지향하는 바가 다른 영역의 중간에서 패러다임을 일치시켜 주는 기술-JPA의 역할이다.
+ * Spring Data JPA
+   + JPA는 인터페이스로서 자바 표준명세서이다. 
+   + 대표적인 구현체틑 Hibernate, Eclipselink 등이 있다
+   + 구현체를 좀더 쉽게 사용하고자 추상화 시킨 Spring Data JPA모듈을 이용하여  JPA를 다룬다.
+
+### 2020.09.07 스터디
+#### 1.JPA
+* Hibernate vs Spring Data JPA
+  + 사용여부에 큰 차이가 없음
+  + Spring Data JPA는 스프링진영에서 개발했고 이를 권장함.
+
+* Spring Data JPA 사용이유
+  + 구현체 교체의 용이성 
+    - Spring Data JPA 내부에서 구현체 맵핑을 지원해 주고 있기 때문에 
+   
+  + 저장소 교체의 용이성
+    - 관계형 데이터 베이스 외에 다른 저장소로 쉽게 교체하기 위함.
+    - 관계형 데이터 베이스에서 nosql등으로 옮겨 갈 때 Spring Data JPA -> Spring Data Mongo로 의존성 교체만 하면 된다.
+    - Spring Data 하위 프로젝트들은 기본적인 CRUD의 인터페이스가 동일하다. 
+    - save(), findAll(), findOne() 등의 인터페이스를 동일하게 사용하기 때문에 저장소가 교체 되어도 기본적인 기능은 변경이 필요없다.
+
+* JPA 특징
+  + 높은 러닝커브(학습곡선 : 무엇을 배우는데 드는 시간[비용])으로 접근성이 어려움
+  + 여러 성능 이슈해결책이 준비 되어 있어 네이티브 쿼리만큼의 퍼포먼스를 낼 수 있다.
+
+#### 2. gradle에 JPA 추가하기
+* build.gradle
+```
+dependencies{
+ ...
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('com.h2database:h2')
+ ...  
+}
+```
+
+* spring-boot-starter-data-jpa
+  +  스프링부트용 jpa 추상화 라이브러리
+* h2
+  +  인메모리 관계형 데이터베이스
+  +  별도의 설치 없이 사용되며 어플리케이션 재시작시마다 초기화 된다.
+  +  테스트용으로 많이 사용 
+
