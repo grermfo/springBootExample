@@ -256,3 +256,43 @@ public class Posts {
 * Builder 
   + 해당 클래스의 빌더 패턴 클래스를 생성
   + 생성자 상단에 선언시 생성자에 포함된 변수만 빌더에 포함
+  
+### 2020.09.09 
+````
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class PostsRepositoryTest {
+    @Autowired
+    PostsRepository postsRepository;
+
+    @After
+    public void cleanup() {
+        postsRepository.deleteAll();
+    }
+
+    @Test
+    public void selectList() {
+        String title ="테스트 글";
+        String content ="테스트 본문";
+
+        postsRepository.save(Posts.builder()
+            .title(title)
+            .content(content)
+            .author("writer")
+            .build());
+        List<Posts> postsList = postsRepository.findAll();
+
+        Posts posts = postsList.get(0);
+        assertThat(posts.getTitle()).isEqualTo(title);
+    }
+}
+
+```
+*After
+  + 단위 테스트가 끝날 때 수행되는 메서드 지정
+  
+* postsRepository.save
+  +  posts 테이블에 데이터 저장
+  +  id 값이 있으면 update, 아니면 insert 
+* postsRepository.findAll()
+  + 테이블 모든 데이터 조회
