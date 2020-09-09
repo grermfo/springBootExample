@@ -286,8 +286,9 @@ public class PostsRepositoryTest {
         assertThat(posts.getTitle()).isEqualTo(title);
     }
 }
-
 ```
+
+
 *After
   + 단위 테스트가 끝날 때 수행되는 메서드 지정
   
