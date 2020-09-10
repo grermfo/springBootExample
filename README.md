@@ -297,3 +297,38 @@ public class PostsRepositoryTest {
   +  id 값이 있으면 update, 아니면 insert 
 * postsRepository.findAll()
   + 테이블 모든 데이터 조회
+  
+### 2020.09.10 스터디 내용
+#### 1.application.properties 설정 - jpa
+
+/src/resources/application.properties 작성
+```
+spring.jap.hibernate.ddl-auto=none //create,create-drop,validate, update, none
+spring.jpa.ganerate-ddl=false
+spring.jpa.show-sql=true
+spring.jpa.database=H2 //mysql
+spring.jpa.database-platform=org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.properties.hibernate.format_sql=true
+
+logging.level.org.hibernate=info
+```
+
+* spring.jap.hibernate.ddl-auto
+  + create - 테이블 없으면 생성
+  + create-drop - 테스트 환경에 적합 (mock Data를 위해 table 생성 테스트 종료 후 drop)
+  + validate - @Entity와 테이블이 제대로 맵핑되지 않으면 application 실행안함.
+  + update - 테이블이 존재하는 상황에서 @Entity가 추가되면 기존테이블에 변경없이 새로운 column추가
+  + none - 아무것도 안함
+* spring.jpa.ganerate-ddl : DDL생성시 데이터 베이스 고유기능 사용유무
+* spring.jpa.show-sql : jpa or hibernate통해  CRUD 실행시 sql 로깅여부 
+* spring.jpa.database : 데이터 베이스 지정
+* spring.jpa.database-platform 
+  + Spring Data JPA는 기본적으로 hibernate 라는 JPA구현체를 사용한다.
+  + hibernate 는 내부적으로 지정되는 DB에 맞게 SQL문을 생성하는 Dialect가 존재한다.
+  + Dialect는 hibernate의 다양햔 데이터베이스 처리를 위해 각 DB에 맞는 sql문법을 처리하기 위해 존재한다.
+    - MySQL5Dialect, MySQL5InnoDBDialect,Oracle10gDialect,OracleDialect 등
+  + spring.jpa.properties.hibernate.format_sql : 로깅에 표시되는 sql을 보기좋게 표시
+ * logging.level.org.hibernate : hibernate 로깅레벨 설정(info 보다 debug가 상세하게 표시) 
+    
+
+
