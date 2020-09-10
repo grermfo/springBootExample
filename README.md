@@ -330,5 +330,52 @@ logging.level.org.hibernate=info
   + spring.jpa.properties.hibernate.format_sql : 로깅에 표시되는 sql을 보기좋게 표시
  * logging.level.org.hibernate : hibernate 로깅레벨 설정(info 보다 debug가 상세하게 표시) 
     
+```
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+Hibernate: 
+    
+    drop table if exists posts
+Hibernate: 
+    
+    create table posts (
+       id bigint not null auto_increment,
+        author varchar(255),
+        content TEXT not null,
+        title varchar(500) not null,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    insert 
+    into
+        posts
+        (author, content, title) 
+    values
+        (?, ?, ?)
+
+Hibernate: 
+    select
+        posts0_.id as id1_0_,
+        posts0_.author as author2_0_,
+        posts0_.content as content3_0_,
+        posts0_.title as title4_0_ 
+    from
+        posts posts0_
+Hibernate: 
+    select
+        posts0_.id as id1_0_,
+        posts0_.author as author2_0_,
+        posts0_.content as content3_0_,
+        posts0_.title as title4_0_ 
+    from
+        posts posts0_
+Hibernate: 
+    delete 
+    from
+        posts 
+    where
+        id=?
+
+```
+> hibernate 형식으로 sql 표시유무를 선택하면 위와 같은 결과를 볼 수 있다.
 
 
