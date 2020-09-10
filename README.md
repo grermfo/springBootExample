@@ -214,7 +214,7 @@ dependencies{
   +  테스트용으로 많이 사용 
 
 
-### 2020.09.09 스터디 내용
+### 2020.09.08 스터디 내용
 ```
 @Getter
 @NoArgsConstructor
@@ -257,7 +257,7 @@ public class Posts {
   + 해당 클래스의 빌더 패턴 클래스를 생성
   + 생성자 상단에 선언시 생성자에 포함된 변수만 빌더에 포함
   
-### 2020.09.09 
+### 2020.09.09 스터디 내용
 ````
 @RunWith(SpringRunner.class)
 @SpringBootTest
