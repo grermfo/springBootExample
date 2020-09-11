@@ -386,6 +386,9 @@ Hibernate:
 
 > Service는 트랜잭션 도메인간 순서 보장 역할
 
+![다운로드](https://user-images.githubusercontent.com/45908835/92929648-dcc0d080-f47b-11ea-8f94-8b883833c418.png)
+
+
 * Web Layer 
   + 컨트롤러 와 Jsp 등 뷰 템플릿 영역
   + 이외 필터, 인터셉터등 외부요청과 응답 전반에 걸친 영역
