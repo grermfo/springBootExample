@@ -378,4 +378,29 @@ Hibernate:
 ```
 > hibernate 형식으로 sql 표시유무를 선택하면 위와 같은 결과를 볼 수 있다.
 
+### 2020.09.11 스터디 내용
+#### 1. API 작성용
+* DTO
+* Controller
+* Service
+
+> Service는 트랜잭션 도메인간 순서 보장 역할
+
+* Web Layer 
+  + 컨트롤러 와 Jsp 등 뷰 템플릿 영역
+  + 이외 필터, 인터셉터등 외부요청과 응답 전반에 걸친 영역
+  
+* Service Layer
+  + Controller 와 DAO의 중간영역
+  + Trnasactional 이 사용되는 영역
+* Repository Layer
+  + 데이터 저장소에 접근는 영역
+  + DAO 영역
+* DTOs
+  + Data Trnasfer Object : 계층간에 데이터 교환을 위한 객체
+* Domain Model
+  + 도메인이라는 개발대상을 단순화 시키는 것 
+  + VO처럼 값 객체들도 이 영역에 해당됨
+  
+
 
