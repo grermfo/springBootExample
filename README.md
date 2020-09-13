@@ -417,5 +417,7 @@ Hibernate:
   
   Controller에서 결과값으로 여러 테이블을 조인해서 사용해야 할경우 Entity 클래스만으로 표현이 어렵다.
   Entity 클래스와 Controller에서 사용할 dto는 분리해서 사용해야 한다.
+* WebMvcTest의 경우 JPA기능이 작동하지 않기 때문에 외부연동관련 부분만 활성화된다.
+  JPA 기능 테스트를 할 경우, SpringBootTest와 TestRestTemplate만 사용하면 된다.
 
 
