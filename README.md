@@ -422,3 +422,20 @@ Hibernate:
 
 ### 2020.09.14 스터디 내용
 #### api 추가 후 테스트 중 오류 발생 테스트 오류 잡는 중 ㅜㅜ
+
+```
+ @Transactional
+    public Long update(Long id, PostsUpdateRequestDto requestDto) {
+        Posts posts = postsRepository.findById(id)
+                                     .orElseThrow(() ->new IllegalArgumentException("해당 글이 없음. id = "+ id));
+        posts.update(requestDto.getTitle(), requestDto.getContent());
+
+        return id;
+    }
+```
+
+> update 기능에 쿼리를 쓰지 않는데 JPA의 영속성 컨텍스트 때문이다.
+> 영속성 컨텍스트란 엔티티를 영구저장하는 환경이다. 일종의 논리적 개념으로 엔티티가 영속성 컨텍스트에 포함되느냐 마느냐로 갈린다.
+> JPA의 매니저가 활성화된 상태로 트랜잭션 안에서 데이터베이스 에서 데이터를 가지고 오면 데이터는 영속성 컨텍스트가 유지된 상태입니다.
+> 이 상태에서 데이터 값을 변경하려면 트랜잭션이 끝나는 시점에 해당 테이블에 변경분을 반영합니다.
+> 엔티티 객체값만 변경하면 별도로 update 쿼리가 필요 없습니다. 이 개념을 더티체킹이라고 합니다.
