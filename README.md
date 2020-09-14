@@ -421,7 +421,7 @@ Hibernate:
   JPA 기능 테스트를 할 경우, SpringBootTest와 TestRestTemplate만 사용하면 된다.
 
 ### 2020.09.14 스터디 내용
-#### api 추가 후 테스트 중 오류 발생 테스트 오류 잡는 중 ㅜㅜ
+#### ** 테스트 중 오류 발생 테스트 오류 잡는 중 ㅜㅜ
 
 ```
  @Transactional
