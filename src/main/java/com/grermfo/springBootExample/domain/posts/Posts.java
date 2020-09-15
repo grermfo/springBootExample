@@ -30,7 +30,7 @@ public class Posts {
         this.author = author;
     }
 
-    public void update(String title, String cotent) {
+    public void update(String title, String content) {
         this.title = title;
         this.content = content;
 
