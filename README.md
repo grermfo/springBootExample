@@ -478,17 +478,17 @@ public abstract class BaseTimeEntity {
 ```
 
 * MappedSuperclass
- + Jpa Entity 클래스가 다음 어노테이션을 갖는 클래스를 상속할 경우 변수들이 컬럼으로 인식되도록 한다.
+  + Jpa Entity 클래스가 다음 어노테이션을 갖는 클래스를 상속할 경우 변수들이 컬럼으로 인식되도록 한다.
  
 * EntityListeners(AuditingEntityListener.class) 
- + Auditing 기능 포함
+  + Auditing 기능 포함
 
 * CreatedDate
- + entity가 생성되어 입력된 시간 자동 저장
+  + entity가 생성되어 입력된 시간 자동 저장
 
 * LastModifiedDate
- + 변경된 시간이 자동 저장
+  + 변경된 시간이 자동 저장
  
 * EnableJpaAuditing
- + 활성화 
+  + 활성화 
 
