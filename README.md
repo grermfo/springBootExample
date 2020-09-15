@@ -160,7 +160,6 @@ public void rtnHelloDto throws Exception  {
   + api 테스트할 때 사용될 요청 파라미터를 설정함.
   + 스트링 값만 허용된다.
   + 다른 포맷의 경우 문자열이 가능합니다.
-  
 * jsonPath
   + json 응답값을 변수별로 검증할 수 있는 메서드
   + $를 기준으로 변수명을 명시함
@@ -180,17 +179,14 @@ public void rtnHelloDto throws Exception  {
 * Hibernate vs Spring Data JPA
   + 사용여부에 큰 차이가 없음
   + Spring Data JPA는 스프링진영에서 개발했고 이를 권장함.
-
 * Spring Data JPA 사용이유
   + 구현체 교체의 용이성 
     - Spring Data JPA 내부에서 구현체 맵핑을 지원해 주고 있기 때문에 
-   
   + 저장소 교체의 용이성
     - 관계형 데이터 베이스 외에 다른 저장소로 쉽게 교체하기 위함.
     - 관계형 데이터 베이스에서 nosql등으로 옮겨 갈 때 Spring Data JPA -> Spring Data Mongo로 의존성 교체만 하면 된다.
     - Spring Data 하위 프로젝트들은 기본적인 CRUD의 인터페이스가 동일하다. 
     - save(), findAll(), findOne() 등의 인터페이스를 동일하게 사용하기 때문에 저장소가 교체 되어도 기본적인 기능은 변경이 필요없다.
-
 * JPA 특징
   + 높은 러닝커브(학습곡선 : 무엇을 배우는데 드는 시간[비용])으로 접근성이 어려움
   + 여러 성능 이슈해결책이 준비 되어 있어 네이티브 쿼리만큼의 퍼포먼스를 낼 수 있다.
@@ -291,7 +287,6 @@ public class PostsRepositoryTest {
 
 * After
   + 단위 테스트가 끝날 때 수행되는 메서드 지정
-  
 * postsRepository.save
   +  posts 테이블에 데이터 저장
   +  id 값이 있으면 update, 아니면 insert 
@@ -392,7 +387,6 @@ Hibernate:
 * Web Layer 
   + 컨트롤러 와 Jsp 등 뷰 템플릿 영역
   + 이외 필터, 인터셉터등 외부요청과 응답 전반에 걸친 영역
-  
 * Service Layer
   + Controller 와 DAO의 중간영역
   + Trnasactional 이 사용되는 영역
@@ -421,7 +415,7 @@ Hibernate:
   JPA 기능 테스트를 할 경우, SpringBootTest와 TestRestTemplate만 사용하면 된다.
 
 ### 2020.09.14 스터디 내용
-#### ** 테스트 중 오류 발생 테스트 오류 잡는 중 ㅜㅜ
+#### 1.update 추가 및 테스트  
 
 ```
  @Transactional
@@ -439,3 +433,50 @@ Hibernate:
 > JPA의 매니저가 활성화된 상태로 트랜잭션 안에서 데이터베이스 에서 데이터를 가지고 오면 데이터는 영속성 컨텍스트가 유지된 상태입니다.
 > 이 상태에서 데이터 값을 변경하려면 트랜잭션이 끝나는 시점에 해당 테이블에 변경분을 반영합니다.
 > 엔티티 객체값만 변경하면 별도로 update 쿼리가 필요 없습니다. 이 개념을 더티체킹이라고 합니다.
+
+### 2020.09.15 스터디
+#### 1. H2 DB 접근하기
+
+* application.properties
+  + spring.h2.console.enabled=true 추가
+  
+* h2 db 접속
+
+![20200915_1](https://user-images.githubusercontent.com/45908835/93186210-53f6ad00-f779-11ea-8806-e6e28f020f16.PNG)
+
+* insert 실행
+
+![20200915_2](https://user-images.githubusercontent.com/45908835/93186289-6ec92180-f779-11ea-9509-c7aaf57aec30.PNG)
+
+* 로컬 확인
+
+![20200915_3](https://user-images.githubusercontent.com/45908835/93186304-74bf0280-f779-11ea-812b-637149bc04bf.PNG)
+
+
+#### 2. JPA Auditing
+> 매번 사용하는 단순 코드들을 모아서 관리
+
+```
+@Getter
+@MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
+public abstract class BaseTimeEntity {
+
+    @CreatedDate
+    private LocalDateTime createDate;
+
+    @LastModifiedDate
+    private LocalDateTime modifiedDate;
+
+}
+```
+
+* MappedSuperclass
+  + Jpa Entity 클래스가 다음 어노테이션을 갖는 클래스를 상속할 경우 변수들이 컬럼으로 인식되도록 한다.
+* EntityListeners(AuditingEntityListener.class)
+  + Auditing 기능 포함
+* CreatedDate / LastModifiedDate
+  + entity가 생성 / 변경 시간 자동 저장
+* EnableJpaAuditing
+  + 활성화 
+
