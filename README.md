@@ -447,12 +447,15 @@ Hibernate:
   + spring.h2.console.enabled=true 추가
   
 * h2 db 접속
+
 ![20200915_1](https://user-images.githubusercontent.com/45908835/93186210-53f6ad00-f779-11ea-8806-e6e28f020f16.PNG)
 
 * insert 실행
+
 ![20200915_2](https://user-images.githubusercontent.com/45908835/93186289-6ec92180-f779-11ea-9509-c7aaf57aec30.PNG)
 
 * 로컬 확인
+
 ![20200915_3](https://user-images.githubusercontent.com/45908835/93186304-74bf0280-f779-11ea-812b-637149bc04bf.PNG)
 
 
