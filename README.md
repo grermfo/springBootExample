@@ -483,6 +483,6 @@ public abstract class BaseTimeEntity {
   + Auditing 기능 포함
 * CreatedDate / LastModifiedDate
   + entity가 생성 / 변경 시간 자동 저장
-  * EnableJpaAuditing
+* EnableJpaAuditing
   + 활성화 
 
