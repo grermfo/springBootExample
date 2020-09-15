@@ -7,14 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PostsRepositoryTest {
     @Autowired
     PostsRepository postsRepository;
+
+    private static final Logger log = LogManager.getLogger(PostsRepositoryTest.class);
 
     @After
     public void cleanup() {
@@ -35,5 +41,27 @@ public class PostsRepositoryTest {
 
         Posts posts = postsList.get(0);
         assertThat(posts.getTitle()).isEqualTo(title);
+    }
+
+    @Test
+    public void BaseTimeEntityRegist() {
+        LocalDateTime now = LocalDateTime.of(2019, 9,15,18,14,0 );
+        postsRepository.save(Posts.builder()
+                .title("dateTitle")
+                .content("dateContent")
+                .author("dateAuthor")
+                .build());
+
+        List<Posts> postsList = postsRepository.findAll();
+
+        Posts posts = postsList.get(0);
+
+        log.info("******  createDate : " + posts.getCreateDate() + " ****** modifiedDate= " + posts.getModifiedDate());
+
+        assertThat(posts.getCreateDate()).isAfter(now);
+        assertThat(posts.getModifiedDate()).isAfter(now);
+
+
+
     }
 }

@@ -1,7 +1,9 @@
 package com.grermfo.springBootExample.web.dto;
 
 import com.grermfo.springBootExample.domain.posts.Posts;
+import lombok.Getter;
 
+@Getter
 public class PostsResponseDto {
     private Long id;
     private String title;
