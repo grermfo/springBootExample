@@ -459,3 +459,36 @@ Hibernate:
 ![20200915_3](https://user-images.githubusercontent.com/45908835/93186304-74bf0280-f779-11ea-812b-637149bc04bf.PNG)
 
 
+#### 2. JPA Auditing
+> 매번 사용하는 단순 코드들을 모아서 관리
+
+```
+@Getter
+@MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
+public abstract class BaseTimeEntity {
+
+    @CreatedDate
+    private LocalDateTime createDate;
+
+    @LastModifiedDate
+    private LocalDateTime modifiedDate;
+
+}
+```
+
+* MappedSuperclass
+ + Jpa Entity 클래스가 다음 어노테이션을 갖는 클래스를 상속할 경우 변수들이 컬럼으로 인식되도록 한다.
+ 
+* EntityListeners(AuditingEntityListener.class) 
+ + Auditing 기능 포함
+
+* CreatedDate
+ + entity가 생성되어 입력된 시간 자동 저장
+
+* LastModifiedDate
+ + 변경된 시간이 자동 저장
+ 
+* EnableJpaAuditing
+ + 활성화 
+
