@@ -439,3 +439,20 @@ Hibernate:
 > JPA의 매니저가 활성화된 상태로 트랜잭션 안에서 데이터베이스 에서 데이터를 가지고 오면 데이터는 영속성 컨텍스트가 유지된 상태입니다.
 > 이 상태에서 데이터 값을 변경하려면 트랜잭션이 끝나는 시점에 해당 테이블에 변경분을 반영합니다.
 > 엔티티 객체값만 변경하면 별도로 update 쿼리가 필요 없습니다. 이 개념을 더티체킹이라고 합니다.
+
+### 2020.09.15 스터디
+#### 1. H2 DB 접근하기
+
+* application.properties
+  + spring.h2.console.enabled=true 추가
+  
+* h2 db 접속
+![20200915_1](https://user-images.githubusercontent.com/45908835/93186210-53f6ad00-f779-11ea-8806-e6e28f020f16.PNG)
+
+* insert 실행
+![20200915_2](https://user-images.githubusercontent.com/45908835/93186289-6ec92180-f779-11ea-9509-c7aaf57aec30.PNG)
+
+* 로컬 확인
+![20200915_3](https://user-images.githubusercontent.com/45908835/93186304-74bf0280-f779-11ea-812b-637149bc04bf.PNG)
+
+
