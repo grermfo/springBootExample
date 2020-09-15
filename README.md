@@ -483,12 +483,9 @@ public abstract class BaseTimeEntity {
 * EntityListeners(AuditingEntityListener.class) 
   + Auditing 기능 포함
 
-* CreatedDate
-  + entity가 생성되어 입력된 시간 자동 저장
-
-* LastModifiedDate
-  + 변경된 시간이 자동 저장
- 
+* CreatedDate / LastModifiedDate
+  + entity가 생성 / 변경 시간 자동 저장
+  
 * EnableJpaAuditing
   + 활성화 
 
