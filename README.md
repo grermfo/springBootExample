@@ -421,7 +421,7 @@ Hibernate:
   JPA 기능 테스트를 할 경우, SpringBootTest와 TestRestTemplate만 사용하면 된다.
 
 ### 2020.09.14 스터디 내용
-#### 1.update 추가 및 
+#### 1.update 추가 및 테스트  
 
 ```
  @Transactional
