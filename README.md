@@ -480,3 +480,38 @@ public abstract class BaseTimeEntity {
 * EnableJpaAuditing
   + 활성화 
 
+### 2020.09.16 
+#### 1. 머스테치 추가
+
+>머스테치란
+> 수많은 언어를 지원하는 심플한 템플릿 엔진
+
+* 문법이 심플하다.
+* 로직 코드를 사용할 수 없어 view 역할과 서버 역할이 분리 된다.
+* js 와 java 2가지 다 지원하기 때문에 하나의 문법으로 클라이언트/서버 템플릿을 모두 사용.
+
+> build.properties 추가
+
+```
+compile('org.springframework.boot:spring-boot-starter-mustache')
+```
+> 머스테치 기본 경로 /src/main/resources/templates 아래 위치함.
+> url맵핑은 controller에서 진행하고 메스테치 스타터를 추가 했으므로 앞의 경로와 뒤의 확장자는 자동으로 지정
+
+```
+@Controller
+public class MustacheExamController {
+
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
+}
+
+```
+>index를 반환하고 있으므로 기본경로 아래의 index.mustache로 전환해서 view Resolver가 처리된다.
+
+
+
+
