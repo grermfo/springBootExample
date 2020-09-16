@@ -506,9 +506,7 @@ public class MustacheExamController {
     public String index() {
         return "index";
     }
-
 }
-
 ```
 >index를 반환하고 있으므로 기본경로 아래의 index.mustache로 전환해서 view Resolver가 처리된다.
 
