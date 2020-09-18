@@ -512,4 +512,15 @@ public class MustacheExamController {
 
 ### 2020.09.18 스터디 
 
+#### header/footer 머스테치 추가
+* bootstrap.js의 경우 jquery에 의존적이기 때문에 bootstrap.js 앞에 선언해 준다.
+
+```
+{{>layout/header}}
+  스프링 부트 스터디중~
+{{>layout/footer}}
+```
+
+* {{>}} 현재 머스테치 파일을 기준으로 다른 파일을 가지고 온다.
+
 

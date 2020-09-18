@@ -11,4 +11,9 @@ public class MustacheExamController {
         return "index";
     }
 
+    @GetMapping("/posts/save")
+    public String postsSave() {
+         return "postsSave";
+    }
+
 }
