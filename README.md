@@ -512,7 +512,7 @@ public class MustacheExamController {
 
 ### 2020.09.18 스터디 
 
-#### header/footer 머스테치 추가
+#### 1. header/footer 머스테치 추가
 * bootstrap.js의 경우 jquery에 의존적이기 때문에 bootstrap.js 앞에 선언해 준다.
 
 ```
@@ -522,6 +522,17 @@ public class MustacheExamController {
 ```
 
 * {{>}} 현재 머스테치 파일을 기준으로 다른 파일을 가지고 온다.
+
+#### 2. 입력/조회 추가
+
+```
+public interface PostsRepository extends JpaRepository<Posts,Long> {
+    @Query(value="select * from posts p  order by p.id desc", nativeQuery = true)
+    List<Posts> findAllDesc();
+}
+```
+
+* JPA에서 제공하지 않는 기능을  구현할 때 Query 어노테이션을 사용하면 직접적으로 쿼리를 작성해서 해결할 수 있다.
 
 
 ![20200918-1](https://user-images.githubusercontent.com/45908835/93584080-c7015d00-f9df-11ea-9eb9-5b1db2a62b4b.PNG)
