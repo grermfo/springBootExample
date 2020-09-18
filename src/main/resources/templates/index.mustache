@@ -5,4 +5,25 @@
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
         </div>
     </div>
+    <br/>
+    <table class="table table-horizontal table-borderd">
+        <thead class="thead-strong">
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            {{#posts}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{title}}</td>
+                    <td>{{author}}</td>
+
+                </tr>
+            {{/posts}}
+        </tbody>
+    </table>
 {{>layout/footer}}
