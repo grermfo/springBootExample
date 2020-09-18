@@ -522,3 +522,8 @@ public class MustacheExamController {
 ```
 
 * {{>}} 현재 머스테치 파일을 기준으로 다른 파일을 가지고 온다.
+
+
+![20200918-1](https://user-images.githubusercontent.com/45908835/93584080-c7015d00-f9df-11ea-9eb9-5b1db2a62b4b.PNG)
+![20200918-3](https://user-images.githubusercontent.com/45908835/93584090-cb2d7a80-f9df-11ea-8c11-14a80cdb05a3.PNG)
+![20200918-4](https://user-images.githubusercontent.com/45908835/93584103-cd8fd480-f9df-11ea-9e99-864ed91012b7.PNG)
