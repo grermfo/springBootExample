@@ -540,3 +540,15 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
 ![20200918-3](https://user-images.githubusercontent.com/45908835/93584090-cb2d7a80-f9df-11ea-8c11-14a80cdb05a3.PNG)
 
 ![20200918-4](https://user-images.githubusercontent.com/45908835/93584103-cd8fd480-f9df-11ea-9e99-864ed91012b7.PNG)
+
+
+###2020.09.21
+#### 1. 수정 추가
+
+```
+    @PutMapping("api/s1/posts/{id}")
+    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
+        return postsService.update(id, requestDto);
+    }
+
+```
