@@ -545,6 +545,7 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
 ###2020.09.21
 #### 1. 수정 추가
 
+* Controller 추가
 ```
     @PutMapping("api/s1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
@@ -552,3 +553,37 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
     }
 
 ```
+
+* js 추가
+```
+ update : function() {
+        var data={
+            title: $("#title").val(),
+            author: $("#author").val(),
+            content: $("#content").val()
+
+        };
+
+        var id=$("#id").val();
+
+        $.ajax({
+            type:"PUT",
+            url:"/api/s1/posts/"+id,
+            dataType:"json",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify(data)
+        }).done(function(){
+            alert("수정");
+            location.href="/";
+        }).fail(function (error){
+            alert(JSON.stringify(error));
+        });
+    }
+```
+
+> type : "PUT" 여러 HTTP method 중 "PUT" 타입을 선택함
+  >> CRUD를 Rest규약에 맞게 설정
+  + 생성 - POST
+  + 읽기 - GET
+  + 수정 - PUT
+  + 삭제 - DELETE
