@@ -587,3 +587,9 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
   + 읽기 - GET
   + 수정 - PUT
   + 삭제 - DELETE
+
+![20200921-1](https://user-images.githubusercontent.com/45908835/93752089-1b534980-fc39-11ea-8463-80a4d51069f7.PNG)
+![20200921-2](https://user-images.githubusercontent.com/45908835/93752104-1f7f6700-fc39-11ea-83c0-8a842792672b.PNG)
+![20200921-3](https://user-images.githubusercontent.com/45908835/93752110-21492a80-fc39-11ea-9f92-9e344d40bb37.PNG)
+![20200921-4](https://user-images.githubusercontent.com/45908835/93752118-260dde80-fc39-11ea-9f28-0460628e889a.PNG)
+![20200921-5](https://user-images.githubusercontent.com/45908835/93752127-273f0b80-fc39-11ea-8e1f-9184340b560e.PNG)
