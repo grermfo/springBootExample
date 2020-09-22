@@ -50,6 +50,22 @@ var main={
         }).fail(function (error){
             alert(JSON.stringify(error));
         });
+    },
+    delete : function() {
+        var id=$("#id").val();
+
+        $.ajax({
+            type:"DELETE",
+            url:"/api/s1/posts/"+id,
+            dataType:"json",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify(data)
+        }).done(function(){
+            alert("삭제완료");
+            location.href="/";
+        }).fail(function (error){
+            alert(JSON.stringify(error));
+        });
     }
 };
 
