@@ -7,6 +7,10 @@ var main={
         $("#btn-update").on("click", function() {
             _this.update();
         });
+        $("#btn-delete").on("click", function() {
+            _this.delete();
+        });
+
     },
     save : function() {
         var data={
@@ -58,8 +62,7 @@ var main={
             type:"DELETE",
             url:"/api/s1/posts/"+id,
             dataType:"json",
-            contentType: "application/json;charset=utf-8",
-            data: JSON.stringify(data)
+            contentType: "application/json;charset=utf-8"
         }).done(function(){
             alert("삭제완료");
             location.href="/";
