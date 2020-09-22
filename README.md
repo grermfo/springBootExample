@@ -542,7 +542,7 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
 ![20200918-4](https://user-images.githubusercontent.com/45908835/93584103-cd8fd480-f9df-11ea-9e99-864ed91012b7.PNG)
 
 
-###2020.09.21
+### 2020.09.21
 #### 1. 수정 추가
 
 * Controller 추가
@@ -597,3 +597,20 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
 ![20200921-4](https://user-images.githubusercontent.com/45908835/93752118-260dde80-fc39-11ea-9f28-0460628e889a.PNG)
 
 ![20200921-5](https://user-images.githubusercontent.com/45908835/93752127-273f0b80-fc39-11ea-8e1f-9184340b560e.PNG)
+
+### 2020.09.22
+#### 1. 삭제 추가
+```
+ @Transactional
+    public void delete(Long id) {
+        Posts posts = postsRepository.findById(id)
+                .orElseThrow(() ->new IllegalArgumentException("해당 글이 없음. id = "+ id));
+        postsRepository.delete(posts);
+    }
+
+```
+* postsRepository.delete
+  + jpaRepository 에서 delete 메서드를 지원하므로 사용
+  + entity를 변수로 삭제 할 수도 있고 deleteById를 이용하면 id로도 삭제 가능
+  + 조회하는 posts인지 확인 후 삭제
+  
