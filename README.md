@@ -614,3 +614,8 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
   + entity를 변수로 삭제 할 수도 있고 deleteById를 이용하면 id로도 삭제 가능
   + 조회하는 posts인지 확인 후 삭제
   
+### 2020.09.23 스터디
+#### 1.스프링 시큐리티 && OAuth
+> 스프링 시큐리티 : 막강한 인증과 인가 기능을 가진 프레임 워크. 스프링 기반의 애플리케이션에서는 보안을 위한 표준.
+
+
