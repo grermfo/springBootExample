@@ -625,5 +625,10 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
   + 스프링 부트용 라이브러리 출시
   + 신규 라이브러리의 경우 확장성을 고려하여 설계되었다.
   
-  
+### 2020.09.25
+#### 1. 네이버 서비스 등록
+
+<img width="546" alt="스크린샷 2020-09-25 오후 11 09 54" src="https://user-images.githubusercontent.com/45908835/94277295-57addf00-ff84-11ea-841c-824e9dd23f82.png">
+
+
   
