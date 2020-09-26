@@ -643,4 +643,16 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
   + 숫자로 저장되면 그 값이 무슨 코드 인지 의미를 알 수 없다.
   + 그래서 문자열로 저장 될 수 있도록 선언한다
 
-  
+```
+@Getter
+@RequiredArgsConstructor
+public enum Role {
+    GUEST("ROLE_GUEST", "GUEST"),
+    USER("ROLE_USER", "USER");
+
+    private final String key;
+    private final String title;
+}
+
+```
+> 스프링 시큐리티에서 권한코드에 ROLE_가 있어야 한다
