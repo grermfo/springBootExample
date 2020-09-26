@@ -542,7 +542,7 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
 ![20200918-4](https://user-images.githubusercontent.com/45908835/93584103-cd8fd480-f9df-11ea-9e99-864ed91012b7.PNG)
 
 
-###2020.09.21
+### 2020.09.21
 #### 1. 수정 추가
 
 * Controller 추가
@@ -597,3 +597,38 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
 ![20200921-4](https://user-images.githubusercontent.com/45908835/93752118-260dde80-fc39-11ea-9f28-0460628e889a.PNG)
 
 ![20200921-5](https://user-images.githubusercontent.com/45908835/93752127-273f0b80-fc39-11ea-8e1f-9184340b560e.PNG)
+
+### 2020.09.22
+#### 1. 삭제 추가
+```
+ @Transactional
+    public void delete(Long id) {
+        Posts posts = postsRepository.findById(id)
+                .orElseThrow(() ->new IllegalArgumentException("해당 글이 없음. id = "+ id));
+        postsRepository.delete(posts);
+    }
+
+```
+* postsRepository.delete
+  + jpaRepository 에서 delete 메서드를 지원하므로 사용
+  + entity를 변수로 삭제 할 수도 있고 deleteById를 이용하면 id로도 삭제 가능
+  + 조회하는 posts인지 확인 후 삭제
+  
+### 2020.09.23 스터디
+#### 1.스프링 시큐리티 && OAuth
+> 스프링 시큐리티 : 막강한 인증과 인가 기능을 가진 프레임 워크. 스프링 기반의 애플리케이션에서는 보안을 위한 표준.
+
+> OAuth : 인터넷 사용자들이 비밀번호를 제공하지 않고 다른 웹사이트 상의 자신들의 정보에 대해 웹사이트나 애플리케이션의 접근 권한을 부여할 수 있는 공통적인 수단으로서 사용되는, 접근 위임을 위한 개방형 표준이다.이를테면 아마존,[2] 구글, 페이스북, 마이크로소프트, 트위터가 있으며 사용자들이 타사 애플리케이션이나 웹사이트의 계정에 관한 정보를 공유할 수 있게 허용한다
+
+* Spring Security Outh2 Client
+  + spring security oauth 프로젝트가 더 이상 업데이트 되지 않고 현행만 유지될 예정이다.
+  + 스프링 부트용 라이브러리 출시
+  + 신규 라이브러리의 경우 확장성을 고려하여 설계되었다.
+  
+### 2020.09.25
+#### 1. 네이버 서비스 등록
+
+<img width="546" alt="스크린샷 2020-09-25 오후 11 09 54" src="https://user-images.githubusercontent.com/45908835/94277295-57addf00-ff84-11ea-841c-824e9dd23f82.png">
+
+
+  
