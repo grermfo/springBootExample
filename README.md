@@ -630,5 +630,17 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
 
 <img width="546" alt="스크린샷 2020-09-25 오후 11 09 54" src="https://user-images.githubusercontent.com/45908835/94277295-57addf00-ff84-11ea-841c-824e9dd23f82.png">
 
+### 2020.09.26
+
+```
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+```
+* Enumerated(EnumType.STRING)
+  + JpA로 데이터 저장시 Enum값을 어떤 형태로 저장할지를 결정한다.
+  + 기본 int로 된 숫자값 저장
+  + 숫자로 저장되면 그 값이 무슨 코드 인지 의미를 알 수 없다.
+  + 그래서 문자열로 저장 될 수 있도록 선언한다
 
   
