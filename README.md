@@ -656,3 +656,14 @@ public enum Role {
 
 ```
 > 스프링 시큐리티에서 권한코드에 ROLE_가 있어야 한다
+
+### 2020.09.277
+#### 1.user Repository 추가
+#### 2. 스프링 시큐리티 설정
+
+```
+ compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+
+```
+*  pring-boot-starter-oauth2-client
+  + 소셜 로그인등 소셜기능 구현에 필요한 의존성
