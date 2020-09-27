@@ -663,7 +663,6 @@ public enum Role {
 
 ```
  compile('org.springframework.boot:spring-boot-starter-oauth2-client')
-
 ```
 *  pring-boot-starter-oauth2-client
   + 소셜 로그인등 소셜기능 구현에 필요한 의존성
