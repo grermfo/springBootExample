@@ -670,5 +670,41 @@ public enum Role {
   ### 2020.09.28
   #### 1. 스프링 시큐리티 설정
   
- [스프링시큐리티-DOC](https://docs.spring.io/spring-security/site/docs/3.2.5.RELEASE/reference/htmlsingle/#jc-form) 
+ > 참조 :  [스프링시큐리티-DOC](https://docs.spring.io/spring-security/site/docs/3.2.5.RELEASE/reference/htmlsingle/#jc-form) 
 
+  * @EnableWebSecurity
+    + Spring Security 설정을 활성화 한다.
+  * csrf.disabled() 
+    + csrf를 비활성화 한다.
+     > CSRF(Cross Site Requst Forgery:사이트 간 요청 위조) 개발 중 매우 귀찮다(?) 
+       보통 disable 시켜 놓지만 보안점검등 지적받고 활성화 시키는 경우가 많다.  
+       Spring Security의 csrf 프로텍션은 http세션과 동일한 생명주기를 가지는 토큰을 발행한 후 
+       Http요청(PATCH, POST, PUT, DELETE메서드인 경우) 마다 발행된 토큰이 요청에 포함되어 있는지 
+       검사하는 가장 일반적으로 알려진 방식의 구현이 설정되어 있다.
+  * csrf.disabled().headers().frameOptions().disable()
+    + h2-console화면ㅇ르 사용하기 위해 해당 옵션을 disable시킴
+  * authoriseRequest
+    + URL별 권한 관리를 설정하는 옵션의 시작점.
+    + antMatchers 옵션을 사용하려면 선언되어야 한다.
+  * antMatchers
+    + 권한 관리 대상을 지정하는 옵션
+    + URL, HTTP 메서드별로 관리가 가능하다.
+    + "/" 등 지정된 URL들은 permitAll() 옵션을 통해 전체 열감 권한을 준다.
+    + "/api/~" URL은 USER 권한을 가진 사람만 사용 가능하도록 한다.
+  * anyRequest 
+    + 설정된 값들 이외 나머지 URL을 나타낸다.
+    + authenticated()추가하여 나머지 URL들은 모두 인증된 사용자들에게만 허용한다.
+    + 인증된 사용자 즉 로그인한 사용자 대상
+  * logout.logoutSuccess("/")
+    + 로그아웃 기능에 대한 설정의 진입점
+    + 로그아웃 성공시 "/" 주소로 이동
+  * oauth2Login
+    + OAuth2의 로그인 기능 여러 설정의 진입점
+  * userInfoEndpoint 
+    + OAuth2의 로그인 성공 이후 사용자 정보를 가져올 때의 설정들을 담당.
+  * userService
+    + UserService 인터페이스 구현체를 등록한다.
+    + 리소스서버(소셜 서비스들)에서 사용자 정보를 가져온 상태에서 추가로 진행하고자 하는 기능을 명시할 수 있다.   
+  
+    
+              
