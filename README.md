@@ -666,3 +666,9 @@ public enum Role {
 ```
 *  pring-boot-starter-oauth2-client
   + 소셜 로그인등 소셜기능 구현에 필요한 의존성
+  
+  ### 2020.09.28
+  #### 1. 스프링 시큐리티 설정
+  
+ [스프링시큐리티-DOC](https://docs.spring.io/spring-security/site/docs/3.2.5.RELEASE/reference/htmlsingle/#jc-form) 
+
