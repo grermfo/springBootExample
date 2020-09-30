@@ -1,9 +1,20 @@
 {{>layout/header}}
 스프링 부트 & 머스테치 테스트
+
     <div class="row">
         <div class="col-md-6">
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
-        </div>
+
+
+        {{#userNane}}
+        login in as : <span id="user">{{userName}}</span>
+        <a href="/logout" class="btn btn-info active" role="button">logout</a>
+        {{/userName}}
+        {{^userName}}
+        <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">google login</a>
+        {{/userName}}
+    </div>
+
     </div>
     <br/>
     <table class="table table-horizontal table-borderd">
