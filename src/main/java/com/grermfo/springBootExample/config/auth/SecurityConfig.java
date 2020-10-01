@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.client.userinfo.CustomUserTypesOAuth2
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final CustomUserTypesOAuth2UserService customAuth2UserService;
+    private final CustomOAuth2UserService customAuth2UserService;
 
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
