@@ -713,7 +713,7 @@ public enum Role {
  String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()
                                                 .getUserInfoEndpoint().getUserNameAttributeName();
  OAuthAttributes attributes= OAuthAttributes.of(registrationId, userNameAttributeName,oAuth2User.getAttributes());
-     
+httpSession.setAttribute("user", new SessionUser(user));             
 ```       
 
 * registrationId
@@ -727,4 +727,18 @@ public enum Role {
   + 네이버등 다른 소셜 로그인 시 이 클래스 사용
 * SessionUser
   + 세션에 사용자 정보를 저장하기 위한 Dto클래스
-  +  
+  
+  ### 2020.10.02
+   
+```  
+       public static OAuthAttributes of(String registrationId , String userNameAttributeName, Map<String,Object> attributes){
+           return ofGoogle(userNameAttributeName,attributes);
+       }
+``` 
+* of()
+  + OAuth2User의 반환 정보는 Map이기 때문에 하나하나의 값을 변환해야만한다.
+* toEntity()
+  + User엔티티를 생성
+  + OAuthAttributes에 엔티티 생성하는 시점은 처음 가입할 때임.
+  + 가입할 때 기본 권한을 GUEST로 주고 role빌더 값에 role.GUEST를 사용
+  + OAuthAttributes클래스 생성이 끝나면 SessionUser 클래스를 생성한다.   
