@@ -706,5 +706,25 @@ public enum Role {
     + UserService 인터페이스 구현체를 등록한다.
     + 리소스서버(소셜 서비스들)에서 사용자 정보를 가져온 상태에서 추가로 진행하고자 하는 기능을 명시할 수 있다.   
  
- ### 2020.10.01
- #### google login 완료        
+ ### 2020.10.02
+ 
+```
+ String registrationId = userRequest.getClientRegistration().getRegistrationId();
+ String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()
+                                                .getUserInfoEndpoint().getUserNameAttributeName();
+ OAuthAttributes attributes= OAuthAttributes.of(registrationId, userNameAttributeName,oAuth2User.getAttributes());
+     
+```       
+
+* registrationId
+  + 현재 로그인 진행중인 서비스를 구분하는 코드
+  + 소셜 로그인을 다중으로 사용할 때 구분값으로 이용
+* userNameAttributeName
+  + OAuth2 로그인 진행시 키가 되는 필드값을 이야기한다.   
+  + 구글의 경우 기본적으로 코드를 지원, 네이버 카카오등 미지원. 구글의 기본은 sub
+* OAuthAttributes
+  + OAuth2UserService를 통해 가져온 OAuth2User의 attribute를 담을 클래스
+  + 네이버등 다른 소셜 로그인 시 이 클래스 사용
+* SessionUser
+  + 세션에 사용자 정보를 저장하기 위한 Dto클래스
+  +  

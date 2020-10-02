@@ -9,3 +9,10 @@ out
 gen
 .gradle
 application-oauth.properties
+build/classes/
+build/reports/
+build/resources/main/application.properties
+build/resources/main/static/
+build/resources/main/templates/
+build/test-results/
+build/tmp/
