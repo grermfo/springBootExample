@@ -713,7 +713,7 @@ public enum Role {
  String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()
                                                 .getUserInfoEndpoint().getUserNameAttributeName();
  OAuthAttributes attributes= OAuthAttributes.of(registrationId, userNameAttributeName,oAuth2User.getAttributes());
-     
+httpSession.setAttribute("user", new SessionUser(user));             
 ```       
 
 * registrationId
@@ -727,4 +727,3 @@ public enum Role {
   + 네이버등 다른 소셜 로그인 시 이 클래스 사용
 * SessionUser
   + 세션에 사용자 정보를 저장하기 위한 Dto클래스
-  +  
