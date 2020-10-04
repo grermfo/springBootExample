@@ -734,6 +734,15 @@ httpSession.setAttribute("user", new SessionUser(user));
        public static OAuthAttributes of(String registrationId , String userNameAttributeName, Map<String,Object> attributes){
            return ofGoogle(userNameAttributeName,attributes);
        }
+
+    public User toEntity() {
+        return User.builder()
+                .name(name)
+                .email(email)
+                .picture(picture)
+                .role(Role.GUEST)
+                .build();
+    }
 ``` 
 * of()
   + OAuth2User의 반환 정보는 Map이기 때문에 하나하나의 값을 변환해야만한다.
