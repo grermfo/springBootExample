@@ -782,4 +782,13 @@ public @interface MyAnnotation {
     /* enum 형태를 사용하는 방법입니다. */
     Quality quality() default Quality.GOOD;
 }
-```  
+
+
+``` 
+
+```
+@Target(ElementType.PARAMETER)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface LoginUser {
+}
+``` 
