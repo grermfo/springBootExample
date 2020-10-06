@@ -25,8 +25,6 @@ public class LoginUserArgumentResolver implements HandlerMethodArgumentResolver 
         return isLoginUserAnnotation && isUserClass;
     }
 
-
-
     @Override
     public Object resolveArgument(MethodParameter parameter,
                                   ModelAndViewContainer mavContainer,
