@@ -1,5 +1,6 @@
 package com.grermfo.springBootExample.web;
 
+import com.grermfo.springBootExample.config.auth.LoginUser;
 import com.grermfo.springBootExample.config.auth.dto.SessionUser;
 import com.grermfo.springBootExample.service.PostsService;
 import com.grermfo.springBootExample.web.dto.PostsResponseDto;
@@ -19,9 +20,9 @@ public class MustacheExamController {
 
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        //SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if(user != null) {
             model.addAttribute("userName", user.getName());
         }

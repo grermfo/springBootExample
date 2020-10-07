@@ -804,3 +804,53 @@ public @interface LoginUser {
   + @Target - 어노테이션이 적용할 위치를 결정합니다.
   + @Inherited - 이 어노테이션을 선언하면 자식클래스가 어노테이션을 상속 받을 수 있습니다.
   + @Repeatable - 반복적으로 어노테이션을 선언할 수 있게 합니다.
+  
+  ### 2020.10.06
+  어노테이션 방식으로 수정
+  
+  ~~~
+  SessionUser user = (SessionUser) httpSession.getAttribute("user");
+  ~~~
+  
+  메서드 인자로 세션값을 바로 받을 수 있도록 변경처리한다.
+  ~~~
+      @Override
+      public boolean supportsParameter(MethodParameter parameter) {
+          boolean isLoginUserAnnotation = parameter.getParameterAnnotation(LoginUser.class)!= null;
+          boolean isUserClass = SessionUser.class.equals(parameter.getParameterType());
+          return isLoginUserAnnotation && isUserClass;
+      }
+  ~~~
+  
+ * supportsParameter()
+   + 컨트롤러 메서드의 특정 파라메터를 지원하는지 판단한다.
+   + 파라메터에 @LoginUser 어노테이션이 붙어 있고 파라메터 클래스 타입이 SessionUser.class인 경우 true를 반환한다.
+~~~
+@Override
+    public Object resolveArgument(MethodParameter parameter,
+                                  ModelAndViewContainer mavContainer,
+                                  NativeWebRequest webRequest,
+                                  WebDataBinderFactory binderFactory) throws Exception {
+        return httpSession.getAttribute("user");
+
+    }
+~~~   
+* resolveArgument()
+  + 파라메터에 전달할 객체를 생성한다
+  + 세션에서 객체를 가지고 온다.
+  
+~~~
+    @GetMapping("/")
+    public String index(Model model, @LoginUser SessionUser user) {
+        model.addAttribute("posts", postsService.findAllDesc());
+        //SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        if(user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "index";
+    }
+~~~  
+
+* @LoginUser SessuionUser user
+  + 기존에 가져오던 세션 정보 값이 개선 되었다.
+  + 어느 컨트롤러든지 @LoginUser만 사용하면 세션 정보를 가져올 수 있다.
