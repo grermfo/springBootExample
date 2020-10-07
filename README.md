@@ -657,7 +657,7 @@ public enum Role {
 ```
 > 스프링 시큐리티에서 권한코드에 ROLE_가 있어야 한다
 
-### 2020.09.277
+### 2020.09.27
 #### 1.user Repository 추가
 #### 2. 스프링 시큐리티 설정
 
@@ -708,50 +708,7 @@ public enum Role {
  
  ### 2020.10.02
  
-```
- String registrationId = userRequest.getClientRegistration().getRegistrationId();
- String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()
-                                                .getUserInfoEndpoint().getUserNameAttributeName();
- OAuthAttributes attributes= OAuthAttributes.of(registrationId, userNameAttributeName,oAuth2User.getAttributes());
-httpSession.setAttribute("user", new SessionUser(user));             
-```       
 
-* registrationId
-  + 현재 로그인 진행중인 서비스를 구분하는 코드
-  + 소셜 로그인을 다중으로 사용할 때 구분값으로 이용
-* userNameAttributeName
-  + OAuth2 로그인 진행시 키가 되는 필드값을 이야기한다.   
-  + 구글의 경우 기본적으로 코드를 지원, 네이버 카카오등 미지원. 구글의 기본은 sub
-* OAuthAttributes
-  + OAuth2UserService를 통해 가져온 OAuth2User의 attribute를 담을 클래스
-  + 네이버등 다른 소셜 로그인 시 이 클래스 사용
-* SessionUser
-  + 세션에 사용자 정보를 저장하기 위한 Dto클래스
-  
-  ### 2020.10.02
-   
-```  
-       public static OAuthAttributes of(String registrationId , String userNameAttributeName, Map<String,Object> attributes){
-           return ofGoogle(userNameAttributeName,attributes);
-       }
-
-    public User toEntity() {
-        return User.builder()
-                .name(name)
-                .email(email)
-                .picture(picture)
-                .role(Role.GUEST)
-                .build();
-    }
-``` 
-* of()
-  + OAuth2User의 반환 정보는 Map이기 때문에 하나하나의 값을 변환해야만한다.
-* toEntity()
-  + User엔티티를 생성
-  + OAuthAttributes에 엔티티 생성하는 시점은 처음 가입할 때임.
-  + 가입할 때 기본 권한을 GUEST로 주고 role빌더 값에 role.GUEST를 사용
-  + OAuthAttributes클래스 생성이 끝나면 SessionUser 클래스를 생성한다. 
-  
 ```
 import java.lang.annotation.*;
 
@@ -804,6 +761,52 @@ public @interface LoginUser {
   + @Target - 어노테이션이 적용할 위치를 결정합니다.
   + @Inherited - 이 어노테이션을 선언하면 자식클래스가 어노테이션을 상속 받을 수 있습니다.
   + @Repeatable - 반복적으로 어노테이션을 선언할 수 있게 합니다.
+  
+  ### 2020.10.06
+  
+  ```
+   String registrationId = userRequest.getClientRegistration().getRegistrationId();
+   String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()
+                                                  .getUserInfoEndpoint().getUserNameAttributeName();
+   OAuthAttributes attributes= OAuthAttributes.of(registrationId, userNameAttributeName,oAuth2User.getAttributes());
+  httpSession.setAttribute("user", new SessionUser(user));             
+  ```       
+  
+  * registrationId
+    + 현재 로그인 진행중인 서비스를 구분하는 코드
+    + 소셜 로그인을 다중으로 사용할 때 구분값으로 이용
+  * userNameAttributeName
+    + OAuth2 로그인 진행시 키가 되는 필드값을 이야기한다.   
+    + 구글의 경우 기본적으로 코드를 지원, 네이버 카카오등 미지원. 구글의 기본은 sub
+  * OAuthAttributes
+    + OAuth2UserService를 통해 가져온 OAuth2User의 attribute를 담을 클래스
+    + 네이버등 다른 소셜 로그인 시 이 클래스 사용
+  * SessionUser
+    + 세션에 사용자 정보를 저장하기 위한 Dto클래스
+    
+     
+  ```  
+         public static OAuthAttributes of(String registrationId , String userNameAttributeName, Map<String,Object> attributes){
+             return ofGoogle(userNameAttributeName,attributes);
+         }
+  
+      public User toEntity() {
+          return User.builder()
+                  .name(name)
+                  .email(email)
+                  .picture(picture)
+                  .role(Role.GUEST)
+                  .build();
+      }
+  ``` 
+  * of()
+    + OAuth2User의 반환 정보는 Map이기 때문에 하나하나의 값을 변환해야만한다.
+  * toEntity()
+    + User엔티티를 생성
+    + OAuthAttributes에 엔티티 생성하는 시점은 처음 가입할 때임.
+    + 가입할 때 기본 권한을 GUEST로 주고 role빌더 값에 role.GUEST를 사용
+    + OAuthAttributes클래스 생성이 끝나면 SessionUser 클래스를 생성한다. 
+    
   
   ### 2020.10.06
   어노테이션 방식으로 수정
