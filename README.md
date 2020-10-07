@@ -762,7 +762,6 @@ public @interface LoginUser {
   + @Inherited - 이 어노테이션을 선언하면 자식클래스가 어노테이션을 상속 받을 수 있습니다.
   + @Repeatable - 반복적으로 어노테이션을 선언할 수 있게 합니다.
   
-  ### 2020.10.06
   
   ```
    String registrationId = userRequest.getClientRegistration().getRegistrationId();
